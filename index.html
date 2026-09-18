@@ -1,0 +1,107 @@
+﻿
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>My First Website</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: darkblue;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+nav a:hover {
+    text-decoration: underline;}    main {
+            padding: 20px;
+        }
+        h2 {
+            color: teal;
+            border-bottom: 2px solid teal;
+            padding-bottom: 5px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+        img {
+            border: 3px solid darkblue;
+            border-radius: 10px;
+  width: 300px;      }
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .flex-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .flex-item {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+      <h1>Hello, World!</h1>
+    <p>This is my very first website. I'm learning HTML!</p>
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#favorites">Favorites</a> |
+        <a href="#link">Link</a>
+    </nav>      </header>
+
+    <main>
+  <h2 id="about">About Me</h2>             <p>I am a lecturer teaching English at a college in Labuan Bajo.</p>
+
+ <h2>Try This!</h2>
+<button onclick="changeText()">Click Me!</button>
+<p id="demo-text">Nothing has happened yet...</p>       <div class="flex-container">
+            <div class="flex-item">
+      <h2 id="favorites">My Favorite Things</h2>          
+                <ul>
+                    <li>Teaching</li>
+                    <li>Learning new skills</li>
+                    <li>Building websites</li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <h2>An Image</h2>
+                <img src="Mypic.jpg" alt="Me teaching my class">           </div>
+        </div>
+
+     <h2 id="link">A Link</h2>         <p>Visit <a href="https://www.google.com">Google</a> to search anything.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My First Website. All rights reserved.</p>
+    </footer><script>
+    function changeText() {
+        document.getElementById("demo-text").innerHTML = "You clicked the button! 🎉";
+    }
+</script>
+
+</body>
+</html>
