@@ -56,7 +56,16 @@ nav a:hover {
             align-items: flex-start;
             flex-wrap: wrap;
         }
-        .flex-item {
+ .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}       .flex-item {
             flex: 1;
         }
     </style>
@@ -68,9 +77,9 @@ nav a:hover {
     <p>This is my very first website. I'm learning HTML!</p>
     <nav>
         <a href="#about">About</a> |
-        <a href="#favorites">Favorites</a> |
-        <a href="#link">Link</a>
-    </nav>      </header>
+    <a href="#favorites">Favorites</a> |
+    <a href="#link">Link</a> |
+    <a href="#gallery">Gallery</a>   </nav>      </header>
 
     <main>
   <h2 id="about">About Me</h2>             <p>I am a lecturer teaching English at a college in Labuan Bajo.</p>
@@ -93,7 +102,13 @@ nav a:hover {
         </div>
 
      <h2 id="link">A Link</h2>         <p>Visit <a href="https://www.google.com">Google</a> to search anything.</p>
-    </main>
+   <h2 id="gallery">Labuan Bajo Gallery</h2>
+<div class="gallery-grid">
+    <img src="photo1.jpg" alt="Sunset view in Labuan Bajo">
+    <img src="photo2.jpg" alt="My classroom at Politeknik El Bajo Commodus">
+    <img src="photo3.jpg" alt="Komodo National Park boat trip">
+    <img src="photo4.jpg" alt="Students during an English class activity">
+</div> </main>
 
     <footer>
         <p>&copy; 2026 My First Website. All rights reserved.</p>
