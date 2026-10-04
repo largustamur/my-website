@@ -93,9 +93,9 @@
         <h2 id="about">About Me</h2>
         <p>I am a lecturer teaching English at a college in Labuan Bajo. Since 2007, I also work as an interpreter for English-Spanish-Indonesian, and vice versa. Sometimes I work as a Spanish-speaking tourist guide. I love and enjoy my work.</p>
 
-        <h2>Try This!</h2>
-        <button onclick="changeText()">Click Me!</button>
-        <p id="demo-text">Nothing has happened yet...</p>
+        <h2>English Tip of the Day</h2>
+<button onclick="changeText()">Click for a Tip!</button>
+<p id="demo-text">Click the button for a quick English learning tip.</p>
 
         <div class="flex-container">
             <div class="flex-item">
@@ -150,10 +150,22 @@
     </footer>
 
     <script>
-        function changeText() {
-            document.getElementById("demo-text").innerHTML = "You clicked the button! 🎉";
-        }
-    </script>
+    const tips = [
+        "Read something in English every day, even just one paragraph.",
+        "Don't be afraid to make mistakes — that's how you learn!",
+        "Practice speaking out loud, even if you're alone.",
+        "Learn 5 new words a day, and use them in a sentence.",
+        "Watch English videos with subtitles to connect sound and spelling.",
+        "Keep a small notebook for new vocabulary and review it weekly.",
+        "Listening is just as important as speaking — don't skip it!",
+        "Try thinking in English for a few minutes each day."
+    ];
+
+    function changeText() {
+        const randomIndex = Math.floor(Math.random() * tips.length);
+        document.getElementById("demo-text").innerHTML = tips[randomIndex];
+    }
+</script>
 
 </body>
 </html>
