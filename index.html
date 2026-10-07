@@ -98,7 +98,29 @@ button:hover {
 .video-item {
     flex: 1;
     min-width: 300px;
-}  </style>
+} .slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+.slideshow img.active {
+    opacity: 1;
+} </style>
 </head>
 <body>
 
@@ -135,8 +157,9 @@ button:hover {
 
             <div class="flex-item">
                 <h2>An Image</h2>
-                <img src="Meruorahpoolside.jpg" alt="Meruorahpoolside">
-            </div>
+<div class="slideshow">
+    <img src="Meruorahpoolside.jpg" alt="Meruorahpoolside" class="active">
+</div>           </div>
         </div>
 
         <h2 id="videos">My Teaching Videos</h2>
@@ -160,17 +183,16 @@ button:hover {
         <p>Visit <a href="https://www.google.com">Google</a> to search anything.</p>
 
         <h2 id="gallery">Labuan Bajo Gallery</h2>
-  <div class="gallery-grid">
-    <img src="Classatthebeach.jpg" alt="Class at the beach">
+<div class="slideshow" id="gallery-slideshow">
+    <img src="Classatthebeach.jpg" alt="Class at the beach" class="active">
     <img src="Englishgame.jpg" alt="English learning game">
     <img src="Musicclass.jpg" alt="Music class">
     <img src="Musicperfomance.jpg" alt="Music performance">
     <img src="Batucermin_01.jpg" alt="Batu Cermin cave view">
-        <img src="Bukitsilvia_01.jpg" alt="Group photo at Bukit Silvia overlooking the bay">
+    <img src="Bukitsilvia_01.jpg" alt="Group photo at Bukit Silvia overlooking the bay">
     <img src="Halloween_01.jpg" alt="Halloween celebration">
     <img src="Waesewo_01.jpg" alt="Children playing in the river at Waesewo">
-          
-</div>       <h2 id="contact">Contact Me</h2>
+</div>     <h2 id="contact">Contact Me</h2>
         <p>Feel free to reach out:</p>
         <ulclass="no-bg">
             <li>Email: <a href="mailto:largustamur7.7@gmail.com">largustamur7.7@gmail.com</a></li>
@@ -198,7 +220,15 @@ button:hover {
     function changeText() {
         const randomIndex = Math.floor(Math.random() * tips.length);
         document.getElementById("demo-text").innerHTML = tips[randomIndex];
-    }
+    }function showSlides() {
+    const slides = document.querySelectorAll("#gallery-slideshow img");
+    let current = document.querySelector("#gallery-slideshow img.active");
+    let currentIndex = Array.from(slides).indexOf(current);
+    current.classList.remove("active");
+    let nextIndex = (currentIndex + 1) % slides.length;
+    slides[nextIndex].classList.add("active");
+}
+setInterval(showSlides, 3000);
 </script>
 
 </body>
