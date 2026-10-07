@@ -226,15 +226,16 @@ button:hover {
     function changeText() {
         const randomIndex = Math.floor(Math.random() * tips.length);
         document.getElementById("demo-text").innerHTML = tips[randomIndex];
-    }function showSlides() {
-    const slides = document.querySelectorAll("#gallery-slideshow img");
-    let current = document.querySelector("#gallery-slideshow img.active");
+    }function showSlides(containerId) {
+    const slides = document.querySelectorAll("#" + containerId + " img");
+    let current = document.querySelector("#" + containerId + " img.active");
     let currentIndex = Array.from(slides).indexOf(current);
     current.classList.remove("active");
     let nextIndex = (currentIndex + 1) % slides.length;
     slides[nextIndex].classList.add("active");
 }
-setInterval(showSlides, 3000);
+setInterval(function() { showSlides("gallery-slideshow"); }, 3000);
+setInterval(function() { showSlides("images-slideshow"); }, 3000);
 </script>
 
 </body>
