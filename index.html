@@ -120,6 +120,18 @@ button:hover {
 }
 .slideshow img.active {
     opacity: 1;
+}.favorites-img {
+    height: 500px;
+    width: auto;
+    max-width: 100%;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 } </style>
 </head>
 <body>
@@ -148,12 +160,7 @@ button:hover {
         <div class="flex-container">
             <div class="flex-item">
                 <h2 id="favorites">My Favorite Things</h2>
-                <ulclass="no-bg">
-                    <li>Teaching</li>
-                    <li>Learning new skills</li>
-                    <li>Entrepreneurship</li>
-                </ul>
-            </div>
+<img src="Favoritethings_01.jpg" alt="I love: learning new skills, travelling, reading and writing, and entrepreneurship" class="favorites-img">           </div>
 
             <div class="flex-item">
                 <h2 id="images">Images</h2>
