@@ -1,5 +1,5 @@
 ﻿
-  <!DOCTYPE html>
+ DOCTYPE html>
 <html>
 <head>
     <title>Largus Tamur</title>
@@ -134,7 +134,55 @@ button:hover {
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
-} </style>
+} .fav-board {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 500 / 450;
+    margin: 0 auto;
+    background-color: #F2F4F1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.fav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #2F3E46;
+    font-weight: bold;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fav.show {
+    opacity: 1;
+    transform: scale(1);
+}
+.fav-center {
+    left: 40%;
+    top: 38.9%;
+    width: 20%;
+    height: 22.2%;
+    background-color: #A8BDD3;
+    border-radius: 12px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 28px;
+}
+.fav-hex {
+    width: 28%;
+    height: 36%;
+    padding: 0 8px;
+    box-sizing: border-box;
+    font-size: 13px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.fav-top { left: 36%; top: 1%; background-color: #E6D9C6; }
+.fav-bottom { left: 36%; top: 63%; background-color: #E6D9C6; }
+.fav-left { left: 10%; top: 32%; background-color: #BFD0C4; }
+.fav-right { left: 62%; top: 32%; background-color: #BFD0C4; }</style>
 </head>
 <body>
 
@@ -161,8 +209,14 @@ button:hover {
 
         <div class="flex-container">
             <div class="flex-item">
-                <h2 id="favorites">My Favorite Things</h2>
-<img src="Favoritethings.png" alt="I love: learning new skills, travelling, reading and writing, and entrepreneurship" class="favorites-img">           </div>
+                <h2 id="favorites">My Favorite Things</h2><div class="fav-board"  id="favorites-board">
+    <div class="fav fav-center">I love</div>
+    <div class="fav fav-hex fav-top">Learning<br>new skills</div>
+    <div class="fav fav-hex fav-right">Reading<br>&amp; writing</div>
+    <div class="fav fav-hex fav-bottom">Entrepreneurship</div>
+    <div class="fav fav-hex fav-left">Travelling</div>
+</div>
+<img src="Favoritethings.png" alt="I love: learning new skills, travelling, reading and writing, and entrepreneurship" class="favorites-img"  style="display:none">           </div>
 
             <div class="flex-item">
                 <h2 id="images">Images</h2>
@@ -244,8 +298,19 @@ button:hover {
     slides[nextIndex].classList.add("active");
 }
 setInterval(function() { showSlides("gallery-slideshow"); }, 3000);
-setInterval(function() { showSlides("images-slideshow"); }, 3000);
-</script>
+setInterval(function() { showSlides("images-slideshow"); }, 3000);const favPieces = document.querySelectorAll("#favorites-board .fav");
+let favStep = 0;
+function revealNext() {
+    if (favStep < favPieces.length) {
+        favPieces[favStep].classList.add("show");
+    } else if (favStep > favPieces.length) {
+        favPieces.forEach(function (piece) { piece.classList.remove("show"); });
+        favStep = -1;
+    }
+    favStep++;
+}
+revealNext();
+setInterval(revealNext, 1500);</script>
 
 </body>
 </html>
